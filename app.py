@@ -309,14 +309,14 @@ with col_cinfo:
             <div style="font-size:1.25rem; color:#1a73e8;">📧</div>
             <div>
                 <strong style="display:block;">General Information</strong>
-                <span style="font-size:0.9rem; color:#5f6368;">info@vitalsight.io</span>
+                <span style="font-size:0.9rem; color:#5f6368;">shivanesh995@gmail.com</span>
             </div>
         </div>
         <div style="display:flex; gap:1rem; align-items:flex-start;">
             <div style="font-size:1.25rem; color:#1a73e8;">📞</div>
             <div>
                 <strong style="display:block;">Phone Support</strong>
-                <span style="font-size:0.9rem; color:#5f6368;">+91 8939917000 / 044 7111 9111</span>
+                <span style="font-size:0.9rem; color:#5f6368;">+91 6382892269</span>
             </div>
         </div>
     </div>
