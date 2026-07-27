@@ -329,7 +329,7 @@ with col_cform:
         f_org = st.text_input("Organization", placeholder="Clinic or Hospital name")
         f_msg = st.text_area("How can we help you?", placeholder="Describe your clinics RPM objectives...")
         
-        submitted = st.form_submit_form_button("Send Demo Request", type="primary", use_container_width=True)
+        submitted = st.form_submit_button("Send Demo Request", type="primary", use_container_width=True)
         
         if submitted:
             if not f_name or not f_email or not f_org or not f_msg:
