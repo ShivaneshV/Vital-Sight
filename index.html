@@ -3,190 +3,254 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diagnostics Result JSON Web Viewer</title>
+    <title>VitalSight | Remote Patient Monitoring & Diagnostics</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="brand">
-            <span class="brand-icon">⚡</span>
-            <div class="brand-info">
-                <span class="brand-title">DiagViewer</span>
-                <span class="brand-subtitle">v1.0.0</span>
+    <!-- Corporate Header -->
+    <header id="header">
+        <div class="nav-container">
+            <a href="#" class="brand">
+                <span class="brand-logo">❤️</span>
+                <span class="brand-name">VitalSight</span>
+            </a>
+            <nav id="navbar">
+                <a href="#home" class="nav-link">Home</a>
+                <a href="#how-it-works" class="nav-link">How it Works</a>
+                <a href="#benefits" class="nav-link">Benefits</a>
+                <a href="#team" class="nav-link">Our Team</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+            <div class="nav-actions">
+                <a href="#contact" class="btn btn-primary">Request Demo</a>
             </div>
-        </div>
-        <div class="header-actions" id="headerActions" style="display: none;">
-            <button class="btn btn-secondary" id="btnReset">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
-                Load Another File
-            </button>
         </div>
     </header>
 
-    <main class="main-container">
-        <!-- 1. UPLOAD SCREEN -->
-        <section class="upload-screen" id="uploadScreen">
-            <div class="dropzone glass" id="dropzone">
-                <div class="dropzone-content">
-                    <div class="upload-icon">
-                        <svg class="icon" style="width: 36px; height: 36px;" viewBox="0 0 24 24">
-                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
-                        </svg>
+    <!-- 1. HERO SECTION -->
+    <section class="hero-section" id="home">
+        <div class="section-container hero-grid">
+            <div class="hero-content">
+                <h1>Healthcare that follows you home.</h1>
+                <p>VitalSight connects patients with their clinical care teams through seamless, automatic remote patient monitoring (RPM). Track blood pressure, weight, and critical signs with zero tech barriers.</p>
+                <div class="hero-cta">
+                    <a href="#contact" class="btn btn-primary btn-large">Get Started</a>
+                    <a href="#how-it-works" class="btn btn-outline btn-large">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-media">
+                <div class="hero-image-wrapper">
+                    <img src="vitalsight_hero.jpg" alt="VitalSight Remote Monitoring Dashboard Mockup" class="hero-image">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. HOW IT WORKS / PRODUCT FEATURES -->
+    <section class="bg-light" id="how-it-works">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Continuous care, made simple.</h2>
+                <p>Our HIPAA-compliant connected medical equipment automatically transmits measurements to your care team without requiring home Wi-Fi or smartphone pairings.</p>
+            </div>
+            
+            <div class="features-grid">
+                <!-- Feature 1 -->
+                <div class="feature-card">
+                    <div class="feature-icon-box blue">🩸</div>
+                    <h3>Connected Blood Pressure</h3>
+                    <p>Clinically validated blood pressure cuffs automatically record and transmit systolic, diastolic, and pulse measurements instantly.</p>
+                </div>
+                <!-- Feature 2 -->
+                <div class="feature-card">
+                    <div class="feature-icon-box green">⚖️</div>
+                    <h3>Smart Weight Telemetry</h3>
+                    <p>Cellular-connected weight scales log changes in fluid retention and body mass, helping doctors manage heart health proactively.</p>
+                </div>
+                <!-- Feature 3 -->
+                <div class="feature-card">
+                    <div class="feature-icon-box yellow">📡</div>
+                    <h3>Zero-Config Data Hub</h3>
+                    <p>No phone pairing or Wi-Fi configuration required. Simply plug in the pre-configured hub, and the devices transmit securely out-of-the-box.</p>
+                </div>
+                <!-- Feature 4 -->
+                <div class="feature-card">
+                    <div class="feature-icon-box blue">📊</div>
+                    <h3>EMR Integration</h3>
+                    <p>Vital measurements sync directly with major Electronic Medical Record (EMR) systems, allowing doctors to inspect logs inside their existing workflow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. CLINICAL & PATIENT BENEFITS -->
+    <section id="benefits">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Empowering patients and clinics alike.</h2>
+                <p>By bringing regular health tracking into the home, VitalSight helps prevent costly emergency visits and supports proactive clinical adjustments.</p>
+            </div>
+
+            <div class="benefits-layout">
+                <!-- Patients -->
+                <div class="benefit-group">
+                    <h3><span>💙</span> For Patients</h3>
+                    <ul class="benefit-list">
+                        <li class="benefit-item">
+                            <span class="benefit-marker">✔</span>
+                            <div class="benefit-text">
+                                <h4>Zero Technology Barriers</h4>
+                                <p>No logins, passwords, or bluetooth configurations. Step on the scale or apply the cuff, and the rest is automatic.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-marker">✔</span>
+                            <div class="benefit-text">
+                                <h4>Peace of Mind</h4>
+                                <p>Know that a clinician is reviewing your measurements regularly and will reach out if readings exceed set limits.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-marker">✔</span>
+                            <div class="benefit-text">
+                                <h4>Fully Reimbursable</h4>
+                                <p>VitalSight is a Medicare-reimbursable service. Depending on insurance, patients often pay nothing out of pocket.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Clinics -->
+                <div class="benefit-group">
+                    <h3><span>🩺</span> For Providers</h3>
+                    <ul class="benefit-list">
+                        <li class="benefit-item">
+                            <span class="benefit-marker">✔</span>
+                            <div class="benefit-text">
+                                <h4>Consistent Data Stream</h4>
+                                <p>Say goodbye to patient logs written on scrap paper. View verified, continuous diagnostic curves in real time.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-marker">✔</span>
+                            <div class="benefit-text">
+                                <h4>Preventive Care Triage</h4>
+                                <p>Identify high-risk spikes early. Adjust medications or treatment plans before symptoms lead to emergency room admissions.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-marker">✔</span>
+                            <div class="benefit-text">
+                                <h4>Streamlined Billing Support</h4>
+                                <p>Integrated trackers log monitoring minutes automatically, generating simplified billing documentation for Medicare RPM codes.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. HACKATHON / STARTUP TEAM SECTION -->
+    <section class="bg-light" id="team">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>Our Creators</h2>
+                <p>VitalSight was created by an enthusiastic team of engineers and scientists committed to improving accessibility in healthcare diagnostics.</p>
+            </div>
+
+            <div class="team-grid">
+                <!-- Student 1 -->
+                <div class="team-card">
+                    <div class="team-avatar">SV</div>
+                    <div class="team-name">Shivanesh V</div>
+                    <div class="team-role">Lead Product Engineer</div>
+                    <p class="team-bio">Oversees software architecture, API integrations, and database telemetry structures.</p>
+                </div>
+                <!-- Student 2 -->
+                <div class="team-card">
+                    <div class="team-avatar">JD</div>
+                    <div class="team-name">John Doe</div>
+                    <div class="team-role">Front-end & UX Lead</div>
+                    <p class="team-bio">Focuses on building clean, intuitive, and responsive design systems and web layouts.</p>
+                </div>
+                <!-- Student 3 -->
+                <div class="team-card">
+                    <div class="team-avatar">JS</div>
+                    <div class="team-name">Jane Smith</div>
+                    <div class="team-role">IoT Systems Engineer</div>
+                    <p class="team-bio">Manages telemetry configurations, connected hardware drivers, and raw payload data pipelines.</p>
+                </div>
+                <!-- Mentor -->
+                <div class="team-card mentor">
+                    <div class="team-avatar">MR</div>
+                    <div class="team-name">Dr. M. Ram (Mentor)</div>
+                    <div class="team-role">Faculty Advisor</div>
+                    <p class="team-bio">Provides academic guidance, clinical oversight, and technical review for the project framework.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. CONTACT / REGISTRATION FORM -->
+    <section id="contact">
+        <div class="section-container contact-layout">
+            <div class="contact-info">
+                <div>
+                    <h3>Partner with VitalSight</h3>
+                    <p>Interested in integrating Remote Patient Monitoring in your clinic or hospital? Send us a message, and our team will get in touch with you shortly.</p>
+                </div>
+                
+                <div class="contact-details">
+                    <div class="contact-row">
+                        <span class="contact-icon">📧</span>
+                        <div>
+                            <h4>General Inquiry</h4>
+                            <p>info@vitalsight.io</p>
+                        </div>
                     </div>
-                    <div class="dropzone-text">
-                        <h3>Analyze Diagnostics JSON</h3>
-                        <p>Drag and drop your diagnostics result file here, or click to browse</p>
+                    <div class="contact-row">
+                        <span class="contact-icon">📞</span>
+                        <div>
+                            <h4>Phone Support</h4>
+                            <p>+91 8939917000 / 044 7111 9111</p>
+                        </div>
                     </div>
-                    <input type="file" id="fileInput" accept=".json" style="display: none;">
-                    <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
-                        Select JSON File
+                </div>
+            </div>
+
+            <!-- Google-style outlines form -->
+            <div class="contact-form-card">
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label class="form-label" for="formName">Full Name</label>
+                        <input class="form-input" type="text" id="formName" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="formEmail">Email Address</label>
+                        <input class="form-input" type="email" id="formEmail" placeholder="yourname@domain.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="formOrg">Organization</label>
+                        <input class="form-input" type="text" id="formOrg" placeholder="Clinic or Hospital name" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" for="formMessage">How can we help you?</label>
+                        <textarea class="form-input" id="formMessage" placeholder="Tell us about your patient monitoring goals..." required></textarea>
+                    </div>
+                    <button class="btn btn-primary" style="width: 100%; padding: 0.85rem;" type="submit" id="btnSubmit">
+                        Send Request
                     </button>
-                </div>
+                </form>
             </div>
+        </div>
+    </section>
 
-            <div class="or-divider">Or test it now</div>
-
-            <button class="btn btn-secondary" id="btnLoadSample" style="padding: 1rem 2rem; font-size: 1.05rem;">
-                <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
-                Load Sample Diagnostics (FullResult.json)
-            </button>
-        </section>
-
-        <!-- 2. DASHBOARD SCREEN -->
-        <section class="dashboard-screen" id="dashboardScreen">
-            <div class="overview-grid">
-                <!-- System Info Card -->
-                <div class="system-info-card glass">
-                    <h4 class="card-title">
-                        <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-                        System Information
-                    </h4>
-                    <div class="info-rows" id="systemInfoRows">
-                        <!-- Populated by JavaScript -->
-                    </div>
-                </div>
-
-                <!-- Metrics Panel -->
-                <div class="metrics-panel">
-                    <div class="metric-card glass all active" data-filter="all">
-                        <span class="metric-label">Total Tests</span>
-                        <span class="metric-value" id="metricTotal">0</span>
-                        <span class="metric-percentage">100% of diagnostic</span>
-                    </div>
-                    <div class="metric-card glass passed" data-filter="passed">
-                        <span class="metric-label">Passed</span>
-                        <span class="metric-value" id="metricPassed">0</span>
-                        <span class="metric-percentage" id="pctPassed">0%</span>
-                    </div>
-                    <div class="metric-card glass failed" data-filter="failed">
-                        <span class="metric-label">Failed</span>
-                        <span class="metric-value" id="metricFailed">0</span>
-                        <span class="metric-percentage" id="pctFailed">0%</span>
-                    </div>
-                    <div class="metric-card glass warning" data-filter="warning">
-                        <span class="metric-label">Warning</span>
-                        <span class="metric-value" id="metricWarning">0</span>
-                        <span class="metric-percentage" id="pctWarning">0%</span>
-                    </div>
-                    <div class="metric-card glass nodevice" data-filter="nodevice">
-                        <span class="metric-label">No Device</span>
-                        <span class="metric-value" id="metricNoDevice">0</span>
-                        <span class="metric-percentage" id="pctNoDevice">0%</span>
-                    </div>
-
-                    <!-- Overall Pass Rate Indicator -->
-                    <div class="pass-rate-container">
-                        <svg class="radial-progress-svg">
-                            <circle class="radial-bg" cx="40" cy="40" r="36" />
-                            <circle class="radial-fill" id="radialProgressFill" cx="40" cy="40" r="36" />
-                            <text class="radial-text" id="radialProgressText" x="40" y="46" text-anchor="middle" transform="rotate(90 40 40)">0%</text>
-                        </svg>
-                        <div class="pass-rate-details">
-                            <h4>Overall Pass Rate</h4>
-                            <p id="passRateSummary">Passed tests out of total devices checked.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Splitscreen Table and Inspection -->
-            <div class="splitscreen-layout" style="margin-top: 1.5rem;">
-                <!-- Left Pane: Table List -->
-                <div class="pane glass">
-                    <div class="pane-header">
-                        <div class="search-container">
-                            <svg class="icon search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                            <input type="text" class="search-input" id="tableSearch" placeholder="Search by Test or Device Name...">
-                        </div>
-                        <div class="filter-tabs" id="statusFilterTabs" style="display: none;">
-                            <!-- Handled dynamically by metrics card selection -->
-                        </div>
-                    </div>
-                    <div class="table-viewport">
-                        <table class="custom-table">
-                            <thead>
-                                <tr>
-                                    <th style="width: 25%;">Result</th>
-                                    <th style="width: 40%;">Test Name</th>
-                                    <th style="width: 35%;">Device Identifier</th>
-                                </tr>
-                            </thead>
-                            <tbody id="testTableBody">
-                                <!-- Populated dynamically -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <!-- Right Pane: Details Drawer -->
-                <div class="pane glass" id="detailPane">
-                    <div class="detail-empty-state" id="detailEmptyState">
-                        <div class="detail-empty-icon">🔍</div>
-                        <h3>No Test Selected</h3>
-                        <p>Select a test row on the left to inspect detailed subtest updates, error status, and raw payload data.</p>
-                    </div>
-                    <div class="detail-content" id="detailContent" style="display: none;">
-                        <!-- Detail Header -->
-                        <div class="detail-header">
-                            <div class="detail-header-top">
-                                <h3 id="detailTestName">Test Name Placeholder</h3>
-                                <span class="badge" id="detailStatusBadge">Passed</span>
-                            </div>
-                            <div class="device-name-subheader" id="detailDeviceName">Device Name Placeholder</div>
-                        </div>
-
-                        <!-- Tips Panel (Shows up on Failed or Warning test) -->
-                        <div class="tips-panel" id="tipsPanel" style="display: none;">
-                            <div class="tips-title">
-                                <svg class="icon" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
-                                Diagnostic Troubleshooter
-                            </div>
-                            <ul class="tips-list" id="tipsList">
-                                <!-- Troubleshooting advice -->
-                            </ul>
-                        </div>
-
-                        <!-- Subtests list -->
-                        <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary);">Subtest Actions & Metrics</h4>
-                        <div class="subtests-list" id="subtestsList">
-                            <!-- Populated dynamically -->
-                        </div>
-
-                        <!-- Collapsible Raw JSON payload -->
-                        <div class="collapsible-section">
-                            <div class="collapsible-trigger" id="jsonCollapsibleTrigger">
-                                <span>Inspect Raw JSON Payload</span>
-                                <svg class="icon" id="jsonTriggerIcon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
-                            </div>
-                            <div class="collapsible-content" id="jsonCollapsibleContent">
-                                <pre><code id="detailRawJson"></code></pre>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 VitalSight Systems Inc. All rights reserved.</p>
+        <p style="font-size:0.8rem; color:var(--text-muted);">Developed for CIT Technical Competitions (competitions@citchennai.net).</p>
+    </footer>
 
     <script src="app.js"></script>
 </body>
