@@ -1,10 +1,21 @@
 import streamlit as st
 import os
+import base64
+
+# Helper function to convert local image to base64 for HTML injection
+def get_base64_image(image_path):
+    if os.path.exists(image_path):
+        with open(image_path, "rb") as f:
+            data = f.read()
+        return base64.b64encode(data).decode()
+    return ""
+
+logo_base64 = get_base64_image("logo.png")
 
 # Set page configuration
 st.set_page_config(
     page_title="VitalSight | Remote Patient Monitoring",
-    page_icon="❤️",
+    page_icon="logo.png" if os.path.exists("logo.png") else "❤️",
     layout="wide",
     initial_sidebar_state="collapsed"
 )
@@ -119,10 +130,12 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # 1. Custom Nav Bar
-st.markdown("""
+logo_html = f'<img src="data:image/png;base64,{logo_base64}" style="height:36px; width:auto; border-radius:4px; vertical-align:middle; margin-right:8px;">' if logo_base64 else '<span>❤️</span>'
+
+st.markdown(f"""
 <div class="nav-bar-container">
     <div class="nav-logo">
-        <span>❤️</span>
+        {logo_html}
         <span>VitalSight</span>
     </div>
     <div style="font-size:0.9rem; color:#5f6368; font-weight:600; text-transform:uppercase; letter-spacing:0.05em;">
