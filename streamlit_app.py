@@ -265,8 +265,8 @@ with col_t1:
 with col_t2:
     st.markdown("""
     <div class="custom-card" style="text-align:center; padding: 2rem 1rem;">
-        <div class="team-avatar-box">JD</div>
-        <h5 style="margin-bottom:0.25rem;">John Doe</h5>
+        <div class="team-avatar-box">RM</div>
+        <h5 style="margin-bottom:0.25rem;">Ragavendra M</h5>
         <span style="color:#1a73e8; font-size:0.8rem; font-weight:700; letter-spacing:0.05em; display:block; margin-bottom:0.75rem; text-transform:uppercase;">UX Designer</span>
         <p style="font-size:0.8rem; color:#5f6368; margin:0;">Focuses on crafting clean, intuitive patient interfaces and web application views.</p>
     </div>
@@ -275,8 +275,8 @@ with col_t2:
 with col_t3:
     st.markdown("""
     <div class="custom-card" style="text-align:center; padding: 2rem 1rem;">
-        <div class="team-avatar-box">JS</div>
-        <h5 style="margin-bottom:0.25rem;">Jane Smith</h5>
+        <div class="team-avatar-box">VV</div>
+        <h5 style="margin-bottom:0.25rem;">Venkataraam VG</h5>
         <span style="color:#1a73e8; font-size:0.8rem; font-weight:700; letter-spacing:0.05em; display:block; margin-bottom:0.75rem; text-transform:uppercase;">IoT Hardware Lead</span>
         <p style="font-size:0.8rem; color:#5f6368; margin:0;">Implements hardware drivers, low-energy cellular boards, and diagnostic firmware.</p>
     </div>
@@ -285,8 +285,8 @@ with col_t3:
 with col_t4:
     st.markdown("""
     <div class="custom-card" style="text-align:center; padding: 2rem 1rem; border-color:#1e8e3e;">
-        <div class="team-avatar-box" style="color:#1e8e3e; background-color:rgba(30,142,62,0.05);">MR</div>
-        <h5 style="margin-bottom:0.25rem;">Dr. M. Ram (Mentor)</h5>
+        <div class="team-avatar-box" style="color:#1e8e3e; background-color:rgba(30,142,62,0.05);">RK</div>
+        <h5 style="margin-bottom:0.25rem;">Dr. Raj Karkee (Mentor)</h5>
         <span style="color:#1e8e3e; font-size:0.8rem; font-weight:700; letter-spacing:0.05em; display:block; margin-bottom:0.75rem; text-transform:uppercase;">Faculty Advisor</span>
         <p style="font-size:0.8rem; color:#5f6368; margin:0;">Provides academic and clinical oversight, validating diagnostic pipeline research.</p>
     </div>
