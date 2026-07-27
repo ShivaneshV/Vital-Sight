@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Diagnostics Result JSON Web Viewer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="brand">
+            <span class="brand-icon">⚡</span>
+            <div class="brand-info">
+                <span class="brand-title">DiagViewer</span>
+                <span class="brand-subtitle">v1.0.0</span>
+            </div>
+        </div>
+        <div class="header-actions" id="headerActions" style="display: none;">
+            <button class="btn btn-secondary" id="btnReset">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"/></svg>
+                Load Another File
+            </button>
+        </div>
+    </header>
+
+    <main class="main-container">
+        <!-- 1. UPLOAD SCREEN -->
+        <section class="upload-screen" id="uploadScreen">
+            <div class="dropzone glass" id="dropzone">
+                <div class="dropzone-content">
+                    <div class="upload-icon">
+                        <svg class="icon" style="width: 36px; height: 36px;" viewBox="0 0 24 24">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M17 8l-5-5-5 5M12 3v12"/>
+                        </svg>
+                    </div>
+                    <div class="dropzone-text">
+                        <h3>Analyze Diagnostics JSON</h3>
+                        <p>Drag and drop your diagnostics result file here, or click to browse</p>
+                    </div>
+                    <input type="file" id="fileInput" accept=".json" style="display: none;">
+                    <button class="btn btn-primary" onclick="document.getElementById('fileInput').click()">
+                        Select JSON File
+                    </button>
+                </div>
+            </div>
+
+            <div class="or-divider">Or test it now</div>
+
+            <button class="btn btn-secondary" id="btnLoadSample" style="padding: 1rem 2rem; font-size: 1.05rem;">
+                <svg class="icon" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+                Load Sample Diagnostics (FullResult.json)
+            </button>
+        </section>
+
+        <!-- 2. DASHBOARD SCREEN -->
+        <section class="dashboard-screen" id="dashboardScreen">
+            <div class="overview-grid">
+                <!-- System Info Card -->
+                <div class="system-info-card glass">
+                    <h4 class="card-title">
+                        <svg class="icon" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                        System Information
+                    </h4>
+                    <div class="info-rows" id="systemInfoRows">
+                        <!-- Populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Metrics Panel -->
+                <div class="metrics-panel">
+                    <div class="metric-card glass all active" data-filter="all">
+                        <span class="metric-label">Total Tests</span>
+                        <span class="metric-value" id="metricTotal">0</span>
+                        <span class="metric-percentage">100% of diagnostic</span>
+                    </div>
+                    <div class="metric-card glass passed" data-filter="passed">
+                        <span class="metric-label">Passed</span>
+                        <span class="metric-value" id="metricPassed">0</span>
+                        <span class="metric-percentage" id="pctPassed">0%</span>
+                    </div>
+                    <div class="metric-card glass failed" data-filter="failed">
+                        <span class="metric-label">Failed</span>
+                        <span class="metric-value" id="metricFailed">0</span>
+                        <span class="metric-percentage" id="pctFailed">0%</span>
+                    </div>
+                    <div class="metric-card glass warning" data-filter="warning">
+                        <span class="metric-label">Warning</span>
+                        <span class="metric-value" id="metricWarning">0</span>
+                        <span class="metric-percentage" id="pctWarning">0%</span>
+                    </div>
+                    <div class="metric-card glass nodevice" data-filter="nodevice">
+                        <span class="metric-label">No Device</span>
+                        <span class="metric-value" id="metricNoDevice">0</span>
+                        <span class="metric-percentage" id="pctNoDevice">0%</span>
+                    </div>
+
+                    <!-- Overall Pass Rate Indicator -->
+                    <div class="pass-rate-container">
+                        <svg class="radial-progress-svg">
+                            <circle class="radial-bg" cx="40" cy="40" r="36" />
+                            <circle class="radial-fill" id="radialProgressFill" cx="40" cy="40" r="36" />
+                            <text class="radial-text" id="radialProgressText" x="40" y="46" text-anchor="middle" transform="rotate(90 40 40)">0%</text>
+                        </svg>
+                        <div class="pass-rate-details">
+                            <h4>Overall Pass Rate</h4>
+                            <p id="passRateSummary">Passed tests out of total devices checked.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Splitscreen Table and Inspection -->
+            <div class="splitscreen-layout" style="margin-top: 1.5rem;">
+                <!-- Left Pane: Table List -->
+                <div class="pane glass">
+                    <div class="pane-header">
+                        <div class="search-container">
+                            <svg class="icon search-icon" viewBox="0 0 24 24"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                            <input type="text" class="search-input" id="tableSearch" placeholder="Search by Test or Device Name...">
+                        </div>
+                        <div class="filter-tabs" id="statusFilterTabs" style="display: none;">
+                            <!-- Handled dynamically by metrics card selection -->
+                        </div>
+                    </div>
+                    <div class="table-viewport">
+                        <table class="custom-table">
+                            <thead>
+                                <tr>
+                                    <th style="width: 25%;">Result</th>
+                                    <th style="width: 40%;">Test Name</th>
+                                    <th style="width: 35%;">Device Identifier</th>
+                                </tr>
+                            </thead>
+                            <tbody id="testTableBody">
+                                <!-- Populated dynamically -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Right Pane: Details Drawer -->
+                <div class="pane glass" id="detailPane">
+                    <div class="detail-empty-state" id="detailEmptyState">
+                        <div class="detail-empty-icon">🔍</div>
+                        <h3>No Test Selected</h3>
+                        <p>Select a test row on the left to inspect detailed subtest updates, error status, and raw payload data.</p>
+                    </div>
+                    <div class="detail-content" id="detailContent" style="display: none;">
+                        <!-- Detail Header -->
+                        <div class="detail-header">
+                            <div class="detail-header-top">
+                                <h3 id="detailTestName">Test Name Placeholder</h3>
+                                <span class="badge" id="detailStatusBadge">Passed</span>
+                            </div>
+                            <div class="device-name-subheader" id="detailDeviceName">Device Name Placeholder</div>
+                        </div>
+
+                        <!-- Tips Panel (Shows up on Failed or Warning test) -->
+                        <div class="tips-panel" id="tipsPanel" style="display: none;">
+                            <div class="tips-title">
+                                <svg class="icon" viewBox="0 0 24 24"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                                Diagnostic Troubleshooter
+                            </div>
+                            <ul class="tips-list" id="tipsList">
+                                <!-- Troubleshooting advice -->
+                            </ul>
+                        </div>
+
+                        <!-- Subtests list -->
+                        <h4 style="font-size: 0.95rem; font-weight: 600; color: var(--text-secondary);">Subtest Actions & Metrics</h4>
+                        <div class="subtests-list" id="subtestsList">
+                            <!-- Populated dynamically -->
+                        </div>
+
+                        <!-- Collapsible Raw JSON payload -->
+                        <div class="collapsible-section">
+                            <div class="collapsible-trigger" id="jsonCollapsibleTrigger">
+                                <span>Inspect Raw JSON Payload</span>
+                                <svg class="icon" id="jsonTriggerIcon" viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+                            </div>
+                            <div class="collapsible-content" id="jsonCollapsibleContent">
+                                <pre><code id="detailRawJson"></code></pre>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
