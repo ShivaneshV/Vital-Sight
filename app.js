@@ -49,8 +49,13 @@ document.addEventListener('DOMContentLoaded', () => {
             btnSubmit.disabled = true;
             btnSubmit.textContent = 'Sending Request...';
 
-            // Simulate form submission to backend
+            // Trigger local email client mailto redirect
+            const subject = encodeURIComponent(`VitalSight Demo Request - ${org}`);
+            const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nOrganization: ${org}\nMessage: ${message}`);
+            
             setTimeout(() => {
+                window.location.href = `mailto:shivanesh995@gmail.com?subject=${subject}&body=${body}`;
+                
                 const formCard = document.querySelector('.contact-form-card');
                 formCard.style.transition = 'all 0.3s ease';
                 formCard.style.opacity = '0';
@@ -58,18 +63,17 @@ document.addEventListener('DOMContentLoaded', () => {
                 setTimeout(() => {
                     formCard.innerHTML = `
                         <div style="text-align: center; padding: 2rem 0; animation: fadeIn 0.5s ease forwards;">
-                            <div style="font-size: 4rem; color: #1e8e3e; margin-bottom: 1.5rem;">🎉</div>
-                            <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem; color: #202124;">Thank you, ${name}!</h3>
+                            <div style="font-size: 4rem; color: #1e8e3e; margin-bottom: 1.5rem;">📧</div>
+                            <h3 style="font-size: 1.5rem; margin-bottom: 0.75rem; color: #202124;">Email client launched!</h3>
                             <p style="color: #5f6368; font-size: 0.95rem; line-height: 1.6; margin-bottom: 1.5rem;">
-                                Your demo request for <strong>${org}</strong> has been logged successfully. 
-                                A clinical systems specialist will contact you at <strong>${email}</strong> within 24 hours.
+                                Your demo request for <strong>${org}</strong> has been prepared. If your email client didn't open automatically, please send your email manually to <strong>shivanesh995@gmail.com</strong>.
                             </p>
-                            <button class="btn btn-outline" onclick="window.location.reload();">Send Another Message</button>
+                            <button class="btn btn-outline" onclick="window.location.reload();">Back to Form</button>
                         </div>
                     `;
                     formCard.style.opacity = '1';
                 }, 300);
-            }, 1200);
+            }, 800);
         });
     }
 });

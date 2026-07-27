@@ -103,6 +103,23 @@ st.markdown("""
         color: #202124;
     }
     
+    /* Fix input text visibility and override dark-mode styles */
+    input, textarea, select, div[data-baseweb="input"], div[data-baseweb="textarea"] {
+        background-color: #ffffff !important;
+        color: #202124 !important;
+    }
+    
+    .stTextInput input, .stTextArea textarea {
+        background-color: #ffffff !important;
+        color: #202124 !important;
+        border: 1px solid #dadce0 !important;
+    }
+    
+    .stTextInput label, .stTextArea label {
+        color: #202124 !important;
+        font-weight: 600 !important;
+    }
+    
     /* Outlined Form styling for input blocks */
     div[data-testid="stForm"] {
         border: 1px solid #dadce0 !important;
@@ -398,7 +415,12 @@ with col_cform:
             if not f_name or not f_email or not f_org or not f_msg:
                 st.error("Please fill in all the fields before submitting.")
             else:
-                st.success(f"Thank you, {f_name}! Your request for {f_org} has been submitted. A clinical support specialist will email you at {f_email} within 24 hours.")
+                import urllib.parse
+                st.success(f"Thank you, {f_name}! Please click the button below to send your request directly to shivanesh995@gmail.com.")
+                subject = urllib.parse.quote(f"VitalSight Demo Request - {f_org}")
+                body = urllib.parse.quote(f"Name: {f_name}\nEmail: {f_email}\nOrganization: {f_org}\nMessage: {f_msg}")
+                mailto_url = f"mailto:shivanesh995@gmail.com?subject={subject}&body={body}"
+                st.link_button("✉️ Open Mail Client to Send Request", mailto_url, type="primary", use_container_width=True)
 
 # 7. Corporate Footer
 st.markdown("""
