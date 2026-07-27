@@ -11,12 +11,13 @@
     <header id="header">
         <div class="nav-container">
             <a href="#" class="brand">
-                <img src="logo.png" alt="VitalSight Logo" style="height: 36px; width: auto; border-radius: 4px;">
+                <img src="logo.png" alt="VitalSight Logo" style="height: 56px; width: auto; border-radius: 4px;">
                 <span class="brand-name">VitalSight</span>
             </a>
             <nav id="navbar">
                 <a href="#home" class="nav-link">Home</a>
                 <a href="#how-it-works" class="nav-link">How it Works</a>
+                <a href="#technology" class="nav-link">Technology</a>
                 <a href="#benefits" class="nav-link">Benefits</a>
                 <a href="#team" class="nav-link">Our Team</a>
                 <a href="#contact" class="nav-link">Contact</a>
@@ -78,6 +79,74 @@
                     <div class="feature-icon-box blue">📊</div>
                     <h3>EMR Integration</h3>
                     <p>Vital measurements sync directly with major Electronic Medical Record (EMR) systems, allowing doctors to inspect logs inside their existing workflow.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2.5 TECHNICAL CORE SECTION (rPPG & AI Triage Details) -->
+    <section id="technology">
+        <div class="section-container">
+            <div class="section-header">
+                <h2>The Science of Contactless AI Health Triage</h2>
+                <p>VitalSight leverages advanced computer vision and neural networks to extract diagnostic vitals without physical sensor contact.</p>
+            </div>
+            
+            <div class="benefits-layout" style="margin-top: 2rem;">
+                <!-- Column 1: The Technology -->
+                <div class="benefit-group" style="border-radius: 16px;">
+                    <h3 style="border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem; margin-bottom: 1.5rem;">📸 Remote Photoplethysmography (rPPG)</h3>
+                    <ul class="benefit-list">
+                        <li class="benefit-item">
+                            <span class="benefit-marker">■</span>
+                            <div class="benefit-text">
+                                <h4>Facial Capillary Analysis</h4>
+                                <p>Using any standard smartphone camera or webcam, our algorithm tracks microscopic color fluctuations in facial skin tissue. These fluctuations are caused by sub-visual blood volume changes during cardiac cycles.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-marker">■</span>
+                            <div class="benefit-text">
+                                <h4>Three-Channel Sensor Fusion</h4>
+                                <p>The system separates light reflections into RGB channels, filters ambient lighting interference, and calculates heart rate (HR), respiration rate (RR), and blood oxygen saturation (SpO2) concurrently with clinical-grade precision.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-marker">■</span>
+                            <div class="benefit-text">
+                                <h4>Motion & Blink Artifact Rejection</h4>
+                                <p>Adaptive filters track facial landmarks in real time, filtering out speech movements, head rotations, and blinks to isolate the true underlying photoplethysmogram wave.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 2: The AI Triage Core -->
+                <div class="benefit-group" style="border-radius: 16px;">
+                    <h3 style="border-bottom: 1px solid var(--border-color); padding-bottom: 0.75rem; margin-bottom: 1.5rem;">🧠 Predictive Neural Triage Core</h3>
+                    <ul class="benefit-list">
+                        <li class="benefit-item">
+                            <span class="benefit-marker">■</span>
+                            <div class="benefit-text">
+                                <h4>Multimodal Temporal Classifiers</h4>
+                                <p>Recurrent Neural Networks (RNN) and LSTM layers evaluate vital time-series sequences to forecast patient deterioration patterns over 24-hour windows.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-marker">■</span>
+                            <div class="benefit-text">
+                                <h4>MEWS Scoring Automation</h4>
+                                <p>VitalSight automatically calculates patient Modified Early Warning Scores (MEWS). It flags critical vital anomalies, helping clinics prioritize patients based on diagnostic risk levels.</p>
+                            </div>
+                        </li>
+                        <li class="benefit-item">
+                            <span class="benefit-marker">■</span>
+                            <div class="benefit-text">
+                                <h4>Secure Clinical Alerting</h4>
+                                <p>When alert thresholds are crossed, encrypted warning payloads are routed to on-duty providers, enabling immediate virtual consultations or emergency interventions.</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>

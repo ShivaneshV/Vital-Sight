@@ -96,9 +96,9 @@ st.markdown("""
     .nav-logo {
         display: flex;
         align-items: center;
-        gap: 0.5rem;
-        font-size: 1.35rem;
-        font-weight: 700;
+        gap: 0.85rem;
+        font-size: 1.85rem;
+        font-weight: 800;
         letter-spacing: -0.03em;
         color: #202124;
     }
@@ -130,7 +130,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # 1. Custom Nav Bar
-logo_html = f'<img src="data:image/png;base64,{logo_base64}" style="height:36px; width:auto; border-radius:4px; vertical-align:middle; margin-right:8px;">' if logo_base64 else '<span>❤️</span>'
+logo_html = f'<img src="data:image/png;base64,{logo_base64}" style="height:56px; width:auto; border-radius:4px; vertical-align:middle; margin-right:8px;">' if logo_base64 else '<span>❤️</span>'
 
 st.markdown(f"""
 <div class="nav-bar-container">
@@ -206,6 +206,56 @@ with col_f4:
         <div class="icon-box">📊</div>
         <h4>EMR Integration</h4>
         <p style="font-size:0.9rem; color:#5f6368; margin:0;">Measurements sync directly with Electronic Medical Record (EMR) systems, matching clinical workflows.</p>
+    </div>
+    """, unsafe_allow_html=True)
+
+st.divider()
+
+# 3.5 Technology Section
+st.markdown('<h2 style="text-align: center; margin-bottom: 1rem;" id="technology">The Science of Contactless AI Health Triage</h2>', unsafe_allow_html=True)
+st.markdown('<p style="text-align: center; color: #5f6368; max-width: 700px; margin: 0 auto 3rem auto; font-size: 1.1rem;">VitalSight leverages advanced computer vision and neural networks to extract diagnostic vitals without physical sensor contact.</p>', unsafe_allow_html=True)
+
+col_tech1, col_tech2 = st.columns(2, gap="large")
+
+with col_tech1:
+    st.markdown("""
+    <div class="custom-card" style="border-radius: 20px;">
+        <h3 style="border-bottom: 1px solid #dadce0; padding-bottom:0.75rem; margin-bottom:1.5rem;">📸 Remote Photoplethysmography (rPPG)</h3>
+        <div style="display:flex; flex-direction:column; gap:1.25rem;">
+            <div>
+                <strong style="color:#1a73e8; font-size:1.05rem; display:block;">■ Facial Capillary Analysis</strong>
+                <span style="font-size:0.9rem; color:#5f6368;">Using any standard smartphone camera or webcam, our algorithm tracks microscopic color fluctuations in facial skin tissue. These fluctuations are caused by sub-visual blood volume changes during cardiac cycles.</span>
+            </div>
+            <div>
+                <strong style="color:#1a73e8; font-size:1.05rem; display:block;">■ Three-Channel Sensor Fusion</strong>
+                <span style="font-size:0.9rem; color:#5f6368;">The system separates light reflections into RGB channels, filters ambient lighting interference, and calculates heart rate (HR), respiration rate (RR), and blood oxygen saturation (SpO2) concurrently with clinical-grade precision.</span>
+            </div>
+            <div>
+                <strong style="color:#1a73e8; font-size:1.05rem; display:block;">■ Motion & Blink Artifact Rejection</strong>
+                <span style="font-size:0.9rem; color:#5f6368;">Adaptive filters track facial landmarks in real time, filtering out speech movements, head rotations, and blinks to isolate the true underlying photoplethysmogram wave.</span>
+            </div>
+        </div>
+    </div>
+    """, unsafe_allow_html=True)
+
+with col_tech2:
+    st.markdown("""
+    <div class="custom-card" style="border-radius: 20px;">
+        <h3 style="border-bottom: 1px solid #dadce0; padding-bottom:0.75rem; margin-bottom:1.5rem;">🧠 Predictive Neural Triage Core</h3>
+        <div style="display:flex; flex-direction:column; gap:1.25rem;">
+            <div>
+                <strong style="color:#1e8e3e; font-size:1.05rem; display:block;">■ Multimodal Temporal Classifiers</strong>
+                <span style="font-size:0.9rem; color:#5f6368;">Recurrent Neural Networks (RNN) and LSTM layers evaluate vital time-series sequences to forecast patient deterioration patterns over 24-hour windows.</span>
+            </div>
+            <div>
+                <strong style="color:#1e8e3e; font-size:1.05rem; display:block;">■ MEWS Scoring Automation</strong>
+                <span style="font-size:0.9rem; color:#5f6368;">VitalSight automatically calculates patient Modified Early Warning Scores (MEWS). It flags critical vital anomalies, helping clinics prioritize patients based on diagnostic risk levels.</span>
+            </div>
+            <div>
+                <strong style="color:#1e8e3e; font-size:1.05rem; display:block;">■ Secure Clinical Alerting</strong>
+                <span style="font-size:0.9rem; color:#5f6368;">When alert thresholds are crossed, encrypted warning payloads are routed to on-duty providers, enabling immediate virtual consultations or emergency interventions.</span>
+            </div>
+        </div>
     </div>
     """, unsafe_allow_html=True)
 
