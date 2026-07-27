@@ -168,11 +168,12 @@ with col_left:
     st.markdown('<h1 class="hero-title">Healthcare that follows you home.</h1>', unsafe_allow_html=True)
     st.markdown('<p class="hero-desc">VitalSight connects patients with their clinical care teams through seamless, automatic remote patient monitoring (RPM). Track blood pressure, weight, and vital signs with zero technology barriers.</p>', unsafe_allow_html=True)
     
-    c_btn1, c_btn2, _ = st.columns([1.2, 1, 1.5])
-    with c_btn1:
-        st.link_button("🏥 Request Demo", "#contact", type="primary", use_container_width=True)
-    with c_btn2:
-        st.link_button("Learn More", "#how-it-works", use_container_width=True)
+    st.markdown("""
+    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+        <a href="#contact" target="_self" class="btn btn-primary" style="padding: 0.75rem 1.5rem; text-decoration: none; color: white !important; font-weight: 600; border-radius: 9999px; background-color: #1a73e8; display: inline-block;">🏥 Request Demo</a>
+        <a href="#how-it-works" target="_self" class="btn btn-outline" style="padding: 0.75rem 1.5rem; text-decoration: none; color: #1a73e8 !important; font-weight: 600; border-radius: 9999px; border: 1px solid #dadce0; background-color: transparent; display: inline-block;">Learn More</a>
+    </div>
+    """, unsafe_allow_html=True)
 
 with col_right:
     # Display the mockup generated image
@@ -426,6 +427,5 @@ with col_cform:
 st.markdown("""
 <div style="background-color:#f8f9fa; border-top:1px solid #dadce0; margin-top:5rem; padding: 2.5rem 1rem; text-align:center; color:#5f6368; font-size:0.85rem; width:100%;">
     <p style="margin-bottom:0.25rem;">&copy; 2026 VitalSight Systems Inc. All rights reserved.</p>
-    <p style="font-size:0.75rem; color:#80868b;">Developed for CIT Technical Competitions (competitions@citchennai.net).</p>
 </div>
 """, unsafe_allow_html=True)
