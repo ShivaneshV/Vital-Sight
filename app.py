@@ -170,8 +170,8 @@ with col_left:
     
     st.markdown("""
     <div style="display: flex; gap: 1rem; margin-top: 1rem;">
-        <a href="#contact" target="_self" class="btn btn-primary" style="padding: 0.75rem 1.5rem; text-decoration: none; color: white !important; font-weight: 600; border-radius: 9999px; background-color: #1a73e8; display: inline-block;">🏥 Request Demo</a>
-        <a href="#how-it-works" target="_self" class="btn btn-outline" style="padding: 0.75rem 1.5rem; text-decoration: none; color: #1a73e8 !important; font-weight: 600; border-radius: 9999px; border: 1px solid #dadce0; background-color: transparent; display: inline-block;">Learn More</a>
+        <button onclick="try { (window.parent.document.getElementById('contact') || document.getElementById('contact')).scrollIntoView({behavior: 'smooth'}) } catch(e) { document.getElementById('contact').scrollIntoView({behavior: 'smooth'}) }" style="padding: 0.85rem 2rem; border: none; font-weight: 600; font-size: 0.95rem; border-radius: 9999px; background-color: #1a73e8; color: white; cursor: pointer; display: inline-flex; align-items: center; gap: 0.5rem;">🏥 Request Demo</button>
+        <button onclick="try { (window.parent.document.getElementById('how-it-works') || document.getElementById('how-it-works')).scrollIntoView({behavior: 'smooth'}) } catch(e) { document.getElementById('how-it-works').scrollIntoView({behavior: 'smooth'}) }" style="padding: 0.85rem 2rem; border: 1px solid #dadce0; font-weight: 600; font-size: 0.95rem; border-radius: 9999px; background-color: transparent; color: #1a73e8; cursor: pointer; display: inline-block;">Learn More</button>
     </div>
     """, unsafe_allow_html=True)
 
